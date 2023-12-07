@@ -1,0 +1,25 @@
+.menu-main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    width: 20%;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-div {
+    background-color: #4a9459;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-div ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

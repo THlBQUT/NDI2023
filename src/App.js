@@ -4,21 +4,19 @@ import {Route, Routes, Switch} from 'react-router-dom';
 
 import Menu from "./components/menu/Menu";
 import HomePage from "./page/HomePage";
-import Quizz from "./page/Quizz";
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <Menu/>
-            </header>
             <body>
             <div>
                 <Routes>
-                    <Route path={"/"} element={<HomePage/>} />
-                    <Route path={"/Quizz"} element={<Quizz/>} />
+                    <Route path={"/"} element={<HomePage/>}/>
                 </Routes>
             </div>
+            <footer>
+
+            </footer>
             </body>
         </div>
     );
