@@ -12,7 +12,7 @@ function Menu() {
             <h1 className={"forward-tilt"}>GAMES</h1>
             <div className={"menu-div"}>
                 <ul>
-                    <li><Link to={"quiz"}>ECO'QUIZ</Link></li>
+                    <li><Link to={"quizz"}>ECO'QUIZ</Link></li>
                     <li><Link to={""}>JEU 2</Link></li>
                     <li><Link to={"settings"}>SETTINGS</Link></li>
                     <li><Link to={"about"}>ABOUT</Link></li>
