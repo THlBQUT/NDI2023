@@ -4,6 +4,7 @@ import {Route, Routes, Switch} from 'react-router-dom';
 
 import Menu from "./components/menu/Menu";
 import HomePage from "./page/HomePage";
+import Quizz from "./page/Quizz";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <div>
                 <Routes>
                     <Route path={"/"} element={<HomePage/>}/>
+                    <Route path={"/"} element={<Quizz/>}/>
                 </Routes>
             </div>
             <footer>
