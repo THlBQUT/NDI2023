@@ -8,7 +8,7 @@ import Quizz from "./page/Quizz";
 
 function App() {
     return (
-        <div className="App">
+        <div>
             <body>
             <div>
                 <Routes>
