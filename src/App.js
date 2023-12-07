@@ -8,15 +8,15 @@ import HomePage from "./page/HomePage";
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <Menu/>
-            </header>
             <body>
             <div>
                 <Routes>
-                    <Route path={"/"} element={<HomePage/>} />
+                    <Route path={"/"} element={<HomePage/>}/>
                 </Routes>
             </div>
+            <footer>
+
+            </footer>
             </body>
         </div>
     );
