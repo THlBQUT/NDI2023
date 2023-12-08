@@ -367,8 +367,6 @@ const Quizz = () => {
         }
     };
     document.addEventListener("keydown", function(event) {
-        console.log("Touche enfoncée : " + event.key);
-        console.log(tab);
         switch (event.key) {
             case "e":
                 tab[Index] = "e";
