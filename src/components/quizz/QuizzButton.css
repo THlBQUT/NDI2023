@@ -38,10 +38,11 @@
 .container {
     margin: 0;
     display: grid;
-    grid-template-columns: 200px 200px;
+    grid-template-columns: 49% 49%;
     grid-template-rows: 100px 100px;
-    grid-gap: 10px;
+    grid-gap: 1%;
     margin-bottom: 1%;
+    width: 100%
 }
 
 .question-button{

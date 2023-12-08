@@ -349,8 +349,8 @@ const Quizz = () => {
 
     const modalStyles = {
         overlay: {
-            zIndex: 1000, // Adjust the zIndex to bring the modal to the foreground
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent overlay
+            zIndex: 1000,
+            backgroundColor: "rgba(0, 0, 0, 0.5)"
         },
         content: {
             top: "50%",
@@ -358,7 +358,7 @@ const Quizz = () => {
             right: "auto",
             bottom: "auto",
             marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
+            transform: "translate(-50%, -50%)"
         },
     };
 
@@ -367,7 +367,7 @@ const Quizz = () => {
             <div>
                 <h5 className={"quiz-score"}>Score: {score}</h5>
             </div>
-            <Modal isOpen={correctAnswer === false} onRequestClose={() => setCorrectAnswer(null)} style={modalStyles}>
+            <Modal isOpen={correctAnswer === false} onRequestClose={() => setCorrectAnswer(null)} style={modalStyles} >
                 <p>Bonne réponse : {oldAnswer}</p>
             </Modal>
             {currentQuestion && (

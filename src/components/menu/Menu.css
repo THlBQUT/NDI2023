@@ -45,13 +45,12 @@ h1 ,h2 ,h3, h4, h5, h6 {
     background-color: #444f45;
 }
 
-ul {
+.menu-main-div ul {
     margin: 0;
     padding: 0;
     width: 90%;
 }
-
-li {
+.menu-main-div li {
     text-align: center;
     list-style-type: none;
     margin: 12px 0;
@@ -65,10 +64,10 @@ li {
     font-weight: 700;
 }
 
-li:hover {
+.menu-main-div li:hover {
     background-color: #4fff72;
 }
 
-li:active {
+.menu-main-div li:active {
     background-color: white;
 }
