@@ -6,15 +6,19 @@ import "./style.css";
 
 function HomePage() {
     const [isChecked, setChecked] = useState(false);
+
     const handleCheck = (isChecked) => {
         setChecked(isChecked);
-        isChecked ? console.log("checked") : console.log("unchecked")
+        if (isChecked) document.body.classList.add("x-mas-theme")
+        else document.body.classList.remove("x-mas-theme");
+
+
     }
 
     return (
         <div>
             <Switch className={"switch-button"} checked={isChecked} onChange={handleCheck}/>
-            <Menu/>
+            <Menu isXmasTheme={isChecked}/>
         </div>
     );
 }
