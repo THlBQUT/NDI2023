@@ -14,7 +14,6 @@ let types = ["recyclable", "non_recyclable"];
 function CollectGame() {
     return (
         <div>
-            <img id={"RecyclerBean"} src={"https://www.w3schools.com/jsref/img_the_scream.jpg"} alt={"RecyclerBean"}/>
             <div id={"score-bar"}>
                 <h1 id={"score"}>Score : {score}</h1>
             </div>
