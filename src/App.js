@@ -19,8 +19,6 @@ function App() {
                 <Route path={"/quizz"} element={<Quizz/>}/>
                 <Route path={"/easteregg"} element={<EasterEgg/>}/>
             </Routes>
-            <footer>
-            </footer>
         </div>
     );
 }
