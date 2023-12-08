@@ -367,6 +367,7 @@ const Quizz = () => {
         }
     };
     document.addEventListener("keydown", function(event) {
+        //ester egg
         switch (event.key) {
             case "e":
                 tab[Index] = "e";
