@@ -6,17 +6,19 @@ import Menu from "./components/menu/Menu";
 import HomePage from "./page/HomePage";
 import CollectGame from "./page/CollectGame";
 import Quizz from "./page/Quizz";
+import EasterEgg from "./components/easteregg/EasterEgg";
 
 function App() {
     return (
-        <div className="App">
+        <div>
             <body>
             <div>
                 <Routes>
                     <Route path={"/"} element={<HomePage/>} />
                     <Route path={"/collect"} element={<CollectGame/>} />
                     <Route path={"/"} element={<HomePage/>}/>
-                    <Route path={"/"} element={<Quizz/>}/>
+                    <Route path={"/Quizz"} element={<Quizz/>}/>
+                    <Route path={"/easteregg"} element={<EasterEgg/>}/>
                 </Routes>
             </div>
             <footer>
