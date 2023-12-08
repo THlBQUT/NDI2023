@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import Modal from 'react-modal';
 import "../components/quizz/QuizzButton.css";
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -300,7 +301,8 @@ const Quizz = () => {
     const [questions, setQuestions] = useState([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
-
+    const [correctAnswer, setCorrectAnswer] = useState(null);
+    const [oldAnswer, setoldAnswer] = useState(null);
     useEffect(() => {
         // Mélanges et initialise les questions lors du montage du composant
         setQuestions(shuffleArray(QuestionArray));
@@ -310,15 +312,19 @@ const Quizz = () => {
 
     const quizzGame = (userAnswer) => {
         if (!currentQuestion) {
-            return; // Évite les erreurs si les questions ne sont pas disponibles
+            return;
         }
 
         const correctAnswer = currentQuestion.answers.find((it) => it.answer);
 
         if (correctAnswer.text === userAnswer) {
             setScore(score + 2);
+            setoldAnswer(userAnswer);
+            setCorrectAnswer(true);
         } else {
             setScore(score - 1);
+            setoldAnswer(correctAnswer.text);
+            setCorrectAnswer(false);
         }
 
         // Exclure la question actuelle des questions disponibles
@@ -341,11 +347,29 @@ const Quizz = () => {
     const shuffledAnswers = currentQuestion ? shuffleArray(currentQuestion.answers) : [];
     const element = <FontAwesomeIcon icon={faAngleLeft} />
 
+    const modalStyles = {
+        overlay: {
+            zIndex: 1000, // Adjust the zIndex to bring the modal to the foreground
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent overlay
+        },
+        content: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto",
+            marginRight: "-50%",
+            transform: "translate(-50%, -50%)",
+        },
+    };
+
     return (
         <>
             <div>
                 <h5 className={"quiz-score"}>Score: {score}</h5>
             </div>
+            <Modal isOpen={correctAnswer === false} onRequestClose={() => setCorrectAnswer(null)} style={modalStyles}>
+                <p>Bonne réponse : {oldAnswer}</p>
+            </Modal>
             {currentQuestion && (
                 <div className={"question-card"}>
                     <div>
