@@ -1,5 +1,6 @@
 import React, { useState, useEffect  } from "react";
 import "../components/quizz/QuizzButton.css";
+import {Link} from "react-router-dom";
 
 const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -329,6 +330,9 @@ const Quizz = () => {
                     ))}
                 </>
             )}
+            <Link to={"/"}>
+                <button className="custom-btn btn-14">Back</button>
+            </Link>
         </>
     );
 };
