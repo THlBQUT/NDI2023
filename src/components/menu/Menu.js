@@ -1,21 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import 'materialize-css/dist/css/materialize.min.css';
-import Ztext from 'react-ztext';
 
 import "./Menu.css";
 
 function Menu() {
     return (
         <div className={"menu-main-div"}>
-            <h1 className={"backward-tilt"}>ECO</h1>
-            <h1 className={"forward-tilt"}>GAMES</h1>
+            <h1 className={"main-title"}>ECO GAMES</h1>
             <div className={"menu-div"}>
                 <ul>
-                    <li><Link to={"quizz"}>ECO'QUIZ</Link></li>
-                    <li><Link to={""}>JEU 2</Link></li>
-                    <li><Link to={"settings"}>SETTINGS</Link></li>
-                    <li><Link to={"about"}>ABOUT</Link></li>
+                    <Link to={"quizz"}><li>ECO'QUIZ</li></Link>
+                    <Link to={""}><li>JEU 2</li></Link>
+                    <Link to={"settings"}><li>SETTINGS</li></Link>
+                    <Link to={"about"}><li>ABOUT</li></Link>
                 </ul>
             </div>
         </div>

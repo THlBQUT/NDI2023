@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-html::before {
+.App::before {
     z-index: -5;
     content: "";
     position: absolute;

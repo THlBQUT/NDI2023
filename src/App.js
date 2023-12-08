@@ -10,21 +10,16 @@ import EasterEgg from "./components/easteregg/EasterEgg";
 
 function App() {
     return (
-        <div>
-            <body>
-            <div>
-                <Routes>
-                    <Route path={"/"} element={<HomePage/>} />
-                    <Route path={"/collect"} element={<CollectGame/>} />
-                    <Route path={"/"} element={<HomePage/>}/>
-                    <Route path={"/Quizz"} element={<Quizz/>}/>
-                    <Route path={"/easteregg"} element={<EasterEgg/>}/>
-                </Routes>
-            </div>
+        <div className={"App"}>
+            <Routes>
+                <Route path={"/"} element={<HomePage/>}/>
+                <Route path={"/collect"} element={<CollectGame/>}/>
+                <Route path={"/"} element={<HomePage/>}/>
+                <Route path={"/Quizz"} element={<Quizz/>}/>
+                <Route path={"/easteregg"} element={<EasterEgg/>}/>
+            </Routes>
             <footer>
-
             </footer>
-            </body>
         </div>
     );
 }
