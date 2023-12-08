@@ -7,6 +7,7 @@ import HomePage from "./page/HomePage";
 import CollectGame from "./page/CollectGame";
 import Quizz from "./page/Quizz";
 import EasterEgg from "./components/easteregg/EasterEgg";
+import About from "./page/About"
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <Routes>
                 <Route path={"/"} element={<HomePage/>}/>
                 <Route path={"/collect"} element={<CollectGame/>}/>
+                <Route path={"/About"} element={<About/>}/>
                 <Route path={"/quizz"} element={<Quizz/>}/>
                 <Route path={"/easteregg"} element={<EasterEgg/>}/>
             </Routes>
