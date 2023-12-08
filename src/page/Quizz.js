@@ -1,5 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import "../components/quizz/QuizzButton.css";
+
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+};
+
 const QuestionArray = [
     {
         question: "Quelle est la principale cause du réchauffement climatique ?",
@@ -264,42 +273,62 @@ const QuestionArray = [
     },
 ];
 const Quizz = () => {
+    const [questions, setQuestions] = useState([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
 
-    const currentQuestion = QuestionArray[currentQuestionIndex];
+    useEffect(() => {
+        // Mélanges et initialise les questions lors du montage du composant
+        setQuestions(shuffleArray(QuestionArray));
+    }, []);
+
+    const currentQuestion = questions.length > 0 ? questions[currentQuestionIndex] : null;
 
     const quizzGame = (userAnswer) => {
+        if (!currentQuestion) {
+            return; // Évite les erreurs si les questions ne sont pas disponibles
+        }
+
         const correctAnswer = currentQuestion.answers.find((it) => it.answer);
 
         if (correctAnswer.text === userAnswer) {
-            // Bonne réponse, ajouter 2 au score
             setScore(score + 2);
         } else {
-            // Mauvaise réponse, enlever 1 au score
             setScore(score - 1);
         }
 
-        // Passer à la question suivante
-        if (currentQuestionIndex < QuestionArray.length - 1) {
-            setCurrentQuestionIndex(currentQuestionIndex + 1);
+        // Exclure la question actuelle des questions disponibles
+        const remainingQuestions = questions.filter((q, index) => index !== currentQuestionIndex);
+
+        if (remainingQuestions.length > 0) {
+            // Passer à une question aléatoire parmi les questions restantes
+            const nextQuestionIndex = Math.floor(Math.random() * remainingQuestions.length);
+            setCurrentQuestionIndex(nextQuestionIndex);
         } else {
             alert(`Félicitations, vous avez terminé le quizz ! Votre score final est ${score}`);
             // Réinitialiser le quizz ou effectuer d'autres actions si nécessaire
             setCurrentQuestionIndex(0);
             setScore(0);
+            // Remélanger les questions pour la prochaine partie
+            setQuestions(shuffleArray(QuestionArray));
         }
     };
 
+    const shuffledAnswers = currentQuestion ? shuffleArray(currentQuestion.answers) : [];
+
     return (
         <>
-            <div>{currentQuestion.question}</div>
-            <div>Score: {score}</div>
-            {currentQuestion.answers.map((it, index) => (
-                <button className={"custom-btn btn-14"} key={index} onClick={() => quizzGame(it.text)}>
-                    {it.text}
-                </button>
-            ))}
+            {currentQuestion && (
+                <>
+                    <div>{currentQuestion.question}</div>
+                    <div>Score: {score}</div>
+                    {shuffledAnswers.map((it, index) => (
+                        <button className={"custom-btn btn-14"} key={index} onClick={() => quizzGame(it.text)}>
+                            {it.text}
+                        </button>
+                    ))}
+                </>
+            )}
         </>
     );
 };
