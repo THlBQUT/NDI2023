@@ -66,6 +66,7 @@
 
 .quiz-score {
     text-align: center;
+    font-size: 2rem;
     text-shadow: #222222 2px 2px 2px;
 }
 
@@ -78,4 +79,33 @@
     align-items: center;
     padding: 2% 0;
     border: none;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 100px 100px 100px;
+        grid-gap: 4%;
+    }
+    .question-card {
+        width: 85%;
+        height: 72vh;
+        margin-top: 18%;
+    }
+    .question-card h5 {
+        font-size: 1.5rem;
+    }
+    .question-button {
+        font-size: 1.5rem;
+    }
+    .quiz-score {
+        font-size: 1.5rem;
+    }
+
+    .quiz-score {
+        font-size: 2rem;
+        position: absolute;
+        top: 0;
+        left: 35%;
+    }
 }

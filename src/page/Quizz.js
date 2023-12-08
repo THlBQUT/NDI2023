@@ -362,15 +362,30 @@ const Quizz = () => {
             transform: "translate(-50%, -50%)",
             padding: "0",
             width: "20%",
-        },
+        }
     };
 
     return (
         <>
-            <div>
-                <span className={"quiz-score"}>Score: {score}</span>
+            <div className={"quiz-score"}>
+                <span>Score: {score}</span>
             </div>
-            <Modal isOpen={correctAnswer === false} onRequestClose={() => setCorrectAnswer(null)} style={modalStyles}>
+            <Modal isOpen={correctAnswer === false} onRequestClose={() => setCorrectAnswer(null)} style={{
+                overlay: {
+                    zIndex: 1000,
+                    backgroundColor: "rgba(0, 0, 0, 0.5)"
+                },
+                content: {
+                    top: "50%",
+                    left: "50%",
+                    right: "auto",
+                    bottom: "auto",
+                    marginRight: "-50%",
+                    transform: "translate(-50%, -50%)",
+                    padding: "0",
+                    width: "80%",
+                }
+            }}>
                     <div className={"error-div"}>
                         {error}
                     </div>
