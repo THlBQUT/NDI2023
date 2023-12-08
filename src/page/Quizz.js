@@ -303,6 +303,8 @@ const Quizz = () => {
     const [score, setScore] = useState(0);
     const [correctAnswer, setCorrectAnswer] = useState(null);
     const [oldAnswer, setoldAnswer] = useState(null);
+    let Index = 0;
+    let tab = [""];
     useEffect(() => {
         // Mélanges et initialise les questions lors du montage du composant
         setQuestions(shuffleArray(QuestionArray));
@@ -364,7 +366,53 @@ const Quizz = () => {
             width: "20%",
         }
     };
-
+    document.addEventListener("keydown", function(event) {
+        console.log("Touche enfoncée : " + event.key);
+        console.log(tab);
+        switch (event.key) {
+            case "e":
+                tab[Index] = "e";
+                Index++;
+                break;
+            case "n":
+                tab[Index] = "n";
+                Index++;
+                break;
+            case "s":
+                tab[Index] = "s";
+                Index++;
+                break;
+            case "i":
+                tab[Index] = "i";
+                Index++;
+                break;
+            case "g":
+                tab[Index] = "g";
+                Index++;
+                break;
+            case "h":
+                tab[Index] = "h";
+                Index++;
+                break;
+            case "t":
+                tab[Index] = "t";
+                Index++;
+                break;
+            default:
+                // Réinitialise le tableau si une touche incorrecte est pressée
+                tab = [""];
+                Index = 0;
+                break;
+        }
+        if (Index === 9 && tab.join("") === "ensinight") {
+            // Redirige vers la page Internet souhaitée
+            window.location.href = 'https://www.ensisa.uha.fr/';
+        }
+        if (Index > 9) {
+            tab = [""];
+            Index = 0;
+        }
+    });
     return (
         <>
             <div className={"quiz-score"}>
