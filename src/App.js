@@ -14,8 +14,7 @@ function App() {
             <Routes>
                 <Route path={"/"} element={<HomePage/>}/>
                 <Route path={"/collect"} element={<CollectGame/>}/>
-                <Route path={"/"} element={<HomePage/>}/>
-                <Route path={"/Quizz"} element={<Quizz/>}/>
+                <Route path={"/quizz"} element={<Quizz/>}/>
                 <Route path={"/easteregg"} element={<EasterEgg/>}/>
             </Routes>
             <footer>

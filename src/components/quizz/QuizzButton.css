@@ -68,3 +68,14 @@
     text-align: center;
     text-shadow: #222222 2px 2px 2px;
 }
+
+.error-div{
+    background-color: #e54646;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 0;
+    border: none;
+}

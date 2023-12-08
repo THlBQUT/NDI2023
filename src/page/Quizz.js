@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import "../components/quizz/QuizzButton.css";
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faAngleLeft} from "@fortawesome/free-solid-svg-icons";
+import {faAngleLeft, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 
 const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -345,7 +345,8 @@ const Quizz = () => {
     };
 
     const shuffledAnswers = currentQuestion ? shuffleArray(currentQuestion.answers) : [];
-    const element = <FontAwesomeIcon icon={faAngleLeft} />
+    const element = <FontAwesomeIcon icon={faAngleLeft}/>
+    const error = <FontAwesomeIcon icon={faCircleXmark} fontSize={"3em"} color={"white"}/>
 
     const modalStyles = {
         overlay: {
@@ -358,17 +359,25 @@ const Quizz = () => {
             right: "auto",
             bottom: "auto",
             marginRight: "-50%",
-            transform: "translate(-50%, -50%)"
+            transform: "translate(-50%, -50%)",
+            padding: "0",
+            width: "20%",
         },
     };
 
     return (
         <>
             <div>
-                <h5 className={"quiz-score"}>Score: {score}</h5>
+                <span className={"quiz-score"}>Score: {score}</span>
             </div>
-            <Modal isOpen={correctAnswer === false} onRequestClose={() => setCorrectAnswer(null)} style={modalStyles} >
-                <p>Bonne réponse : {oldAnswer}</p>
+            <Modal isOpen={correctAnswer === false} onRequestClose={() => setCorrectAnswer(null)} style={modalStyles}>
+                    <div className={"error-div"}>
+                        {error}
+                    </div>
+                    <div>
+                        <h5 style={{textAlign: "center", color: "#e54646"}}>la bonne réponse était :</h5>
+                        <p style={{textAlign:"center"}}>{oldAnswer}</p>
+                    </div>
             </Modal>
             {currentQuestion && (
                 <div className={"question-card"}>

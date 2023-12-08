@@ -11,8 +11,7 @@ function Menu() {
             <div className={"menu-div"}>
                 <ul>
                     <Link to={"quizz"}><li>ECO'QUIZ</li></Link>
-                    <Link to={""}><li>JEU 2</li></Link>
-                    <Link to={"settings"}><li>SETTINGS</li></Link>
+                    <Link to={"collect"}><li>RECYCLE GAME</li></Link>
                     <Link to={"about"}><li>ABOUT</li></Link>
                 </ul>
             </div>
